@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nitinol in Materials Science and Engineering</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-row">
+    <h1>Nitinol: The Metal That Remembers</h1>
+    <span class="sub" id="stepLabel">Section 1 of 8</span>
+  </div>
+  <div class="progress" aria-hidden="true"><div id="bar"></div></div>
+  <nav class="dots" id="dots" aria-label="Sections"></nav>
+</header>
+
+<main>
+
+<!-- 0 WELCOME -->
+<section class="panel" id="s0" aria-label="Welcome">
+  <div class="hero">
+    <span class="badge">Mechanical Engineering · Year 2</span>
+    <h2>Nitinol in Materials Science and Engineering</h2>
+    <p>Bend a metal wire and it stays bent. Bend this one, warm it up, and it springs back by itself. Let's find out how.</p>
+  </div>
+  <div class="card">
+    <h3>What you will learn</h3>
+    <ul class="tick">
+      <li>What Nitinol is and what it is made of</li>
+      <li>How its two crystal phases (martensite and austenite) work</li>
+      <li>The difference between <b>shape memory</b> and <b>superelasticity</b></li>
+      <li>Where engineers use it, and where it is not a good choice</li>
+    </ul>
+    <p class="small" style="margin-top:12px">⏱ About 20–25 minutes · Tap buttons and cards to explore · A short quiz at the end (pass mark 80%)</p>
+  </div>
+  <div class="card">
+    <h3>Warm-up question</h3>
+    <p>Think about a steel paper clip. What happens when you bend it, and can you "un-bend" it by heating it gently with your hands?</p>
+    <button class="flip" data-flip style="width:100%">
+      <span class="front">Tap to reveal the answer<span class="hint">Think first, then tap</span></span>
+      <span class="back">It stays bent, and warming it does nothing. Ordinary metals deform <b>permanently</b> (plastic deformation). Nitinol can be bent and then <b>recover its shape</b> when heated. That is what makes it special.</span>
+    </button>
+  </div>
+</section>
+
+<!-- 1 WHAT IS NITINOL -->
+<section class="panel" id="s1" aria-label="What is Nitinol">
+  <h2>1. What is Nitinol?</h2>
+  <div class="card">
+    <p>Nitinol is a metal alloy made of <b>roughly equal parts nickel (Ni) and titanium (Ti)</b>. It is famous for two properties: <b>shape memory</b> and <b>superelasticity</b>.</p>
+    <div class="note">Normal wire: bend it and it stays bent. Nitinol wire: bend it while cool, heat it up, and it forcefully snaps back to its original, manufactured shape.</div>
+  </div>
+  <p class="small">Tap each card to reveal more.</p>
+  <div class="grid3">
+    <button class="flip" data-flip><span class="front">🧪 Composition<span class="hint">Tap to open</span></span><span class="back">About half nickel, half titanium (an "equiatomic" alloy). Even a tiny change in the ratio shifts the temperature at which it changes shape.</span></button>
+    <button class="flip" data-flip><span class="front">🏷 The name<span class="hint">Tap to open</span></span><span class="back"><b>Ni</b> (nickel) + <b>Ti</b> (titanium) + <b>NOL</b> (Naval Ordnance Laboratory, USA, where it was found in the early 1960s). So: <b>NiTiNOL</b>.</span></button>
+    <button class="flip" data-flip><span class="front">🤔 Why is it unusual?<span class="hint">Tap to open</span></span><span class="back">Most alloys only change shape permanently. Nitinol's atoms can shift between two arrangements and back again, so the metal "remembers" a shape.</span></button>
+  </div>
+  <div class="card">
+    <h3>Quick check</h3>
+    <p>Which two elements make up Nitinol?</p>
+    <div class="btn-row" id="mini1"></div>
+    <p id="mini1fb" class="small" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- 2 HOW IT WORKS -->
+<section class="panel" id="s2" aria-label="How it works">
+  <h2>2. How Nitinol works</h2>
+  <div class="card">
+    <p>The magic comes from its <b>crystal structure</b>, which can switch between two phases depending on temperature and stress.</p>
+    <div class="two">
+      <div class="card" style="border-top:5px solid var(--cold);margin:0"><h3>❄ Martensite (cold)</h3><p style="margin:0">Flexible and easy to deform. You can bend, twist or crush it, and it keeps the new shape.</p></div>
+      <div class="card" style="border-top:5px solid var(--hot);margin:0"><h3>🔥 Austenite (hot)</h3><p style="margin:0">Above the transition temperature, the structure snaps back to its rigid, "remembered" arrangement.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Interactive: drag the temperature</h3>
+    <p class="small">Left: the crystal lattice (blue = Ni, orange = Ti). Right: a wire that was bent while cold. The simulation is simplified and the temperatures are illustrative.</p>
+    <div class="sim-wrap">
+      <div class="svgbox"><svg id="latSvg" viewBox="0 0 300 230" role="img" aria-label="Crystal lattice changing with temperature"></svg></div>
+      <div class="svgbox"><svg id="wireSvg" viewBox="0 0 300 230" role="img" aria-label="Wire straightening with temperature"></svg></div>
+    </div>
+    <div class="slider-row">
+      <span aria-hidden="true">❄ 0°C</span>
+      <input type="range" id="temp" min="0" max="70" value="10" step="1" aria-label="Temperature in degrees Celsius">
+      <span aria-hidden="true">70°C 🔥</span>
+    </div>
+    <div class="readout">
+      <span class="pill" id="rdT">10 °C</span>
+      <span class="pill cold" id="rdPhase">Martensite</span>
+      <span class="pill" id="rdPct">0% austenite</span>
+    </div>
+    <div class="legend"><span><i style="background:var(--ni)"></i>Ni</span><span><i style="background:var(--ti)"></i>Ti</span><span>Transition starts ≈ 25 °C, completes ≈ 33 °C (illustrative)</span></div>
+    <div class="btn-row" style="margin-top:10px">
+      <button class="btn secondary" id="btnBody">Jump to body temperature (37 °C)</button>
+      <button class="btn secondary" id="btnCold">Reset to cold</button>
+    </div>
+    <p id="simMsg" class="note" style="margin-top:12px" aria-live="polite">Try it: slide the temperature up slowly and watch the lattice rows line up while the wire straightens.</p>
+  </div>
+  <div class="card">
+    <h3>The folding-chair idea</h3>
+    <p style="margin:0">The phase change happens on an atomic level <b>without atoms breaking their bonds</b>. They only shift their geometric arrangement, like a folding chair opening and closing. That is why the change can repeat many times.</p>
+  </div>
+</section>
+
+<!-- 3 TWO SUPERPOWERS -->
+<section class="panel" id="s3" aria-label="Two properties">
+  <h2>3. Two superpowers</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab active" role="tab" data-tab="t-sm">Shape memory</button>
+    <button class="tab" role="tab" data-tab="t-se">Superelasticity</button>
+  </div>
+  <div class="tabpane active card" id="t-sm">
+    <h3>🔥 Shape memory effect</h3>
+    <ul class="tick">
+      <li><b>Step 1.</b> Make the part in its desired shape (hot, austenite).</li>
+      <li><b>Step 2.</b> Cool it to martensite and deform it. It stays deformed.</li>
+      <li><b>Step 3.</b> Heat it above the transition temperature. It returns to the original shape, with real force.</li>
+    </ul>
+    <p class="small" style="margin-top:10px">The trigger is <b>temperature</b>.</p>
+  </div>
+  <div class="tabpane card" id="t-se">
+    <h3>🌀 Superelasticity</h3>
+    <p>Above the transition temperature, Nitinol can be stretched far more than normal metals, and it springs back <b>as soon as the load is removed</b>, with no heating needed. Sit on Nitinol glasses and they pop back.</p>
+    <p class="small">The trigger is <b>stress</b> (load). Drag the strain slider below.</p>
+    <div class="svgbox"><svg id="ssSvg" viewBox="0 0 320 210" role="img" aria-label="Stress strain curve of superelastic Nitinol"></svg></div>
+    <div class="tabs" style="margin-top:10px">
+      <button class="tab active" data-dir="load">Loading ⬆</button>
+      <button class="tab" data-dir="unload">Unloading ⬇</button>
+    </div>
+    <div class="slider-row">
+      <span aria-hidden="true">0%</span>
+      <input type="range" id="strain" min="0" max="65" value="0" step="1" aria-label="Strain percent">
+      <span aria-hidden="true">6.5%</span>
+    </div>
+    <div class="readout"><span class="pill" id="rdStrain">Strain 0.0%</span><span class="pill" id="rdStress">Stress 0 MPa</span></div>
+    <p class="note" style="margin-top:12px">Notice the flat "plateau": strain grows a lot while stress barely changes, because the crystal is converting phase. On unloading it follows a lower path and returns to <b>zero</b> strain. Ordinary steel yields at roughly 0.2% strain and stays permanently deformed. <span class="small">(Values are typical and illustrative.)</span></p>
+  </div>
+  <div class="card">
+    <h3>Compare in one line</h3>
+    <p style="margin:0"><span class="tag sm">Shape memory</span> needs <b>heat</b> to recover. <span class="tag se">Superelasticity</span> recovers when the <b>load is removed</b>.</p>
+  </div>
+</section>
+
+<!-- 4 APPLICATIONS -->
+<section class="panel" id="s4" aria-label="Applications">
+  <h2>4. Where is it used?</h2>
+  <p class="small">Tap a card to expand it. Because its transition temperature can be tuned to about 37 °C (body temperature), Nitinol is popular in medicine.</p>
+  <div class="acc" data-acc>
+    <button aria-expanded="false"><span class="ico">🫀</span>Medical stents<span class="chev">▼</span></button>
+    <div class="body"><p>A collapsed stent is pushed through a narrow blood vessel. In the warmth of the bloodstream it expands to a tube and props the artery open.</p><p class="small" style="margin:0">Engineering note: many real stents rely mainly on superelasticity, springing open when released from the delivery catheter.</p></div>
+  </div>
+  <div class="acc" data-acc>
+    <button aria-expanded="false"><span class="ico">😁</span>Orthodontics (braces)<span class="chev">▼</span></button>
+    <div class="body"><p>Nitinol archwires give a <b>constant, gentle pressure</b> as the warmth of the mouth tries to pull the wire back to its straight shape.</p></div>
+  </div>
+  <div class="acc" data-acc>
+    <button aria-expanded="false"><span class="ico">🤖</span>Actuators and robotics<span class="chev">▼</span></button>
+    <div class="body"><p>Nitinol wire acts like <b>artificial muscle</b>. It contracts when heated by an electrical current and relaxes when it cools.</p><p class="small" style="margin:0">Design thought: cooling time limits how fast it can cycle.</p></div>
+  </div>
+  <div class="acc" data-acc>
+    <button aria-expanded="false"><span class="ico">👓</span>Eyeglass frames<span class="chev">▼</span></button>
+    <div class="body"><p>Using superelasticity, frames can be severely bent or sat on and then <b>spring back</b> to their original shape without breaking.</p></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h3>Activity: which property is it?</h3>
+    <p class="small">Choose the property that best explains each use.</p>
+    <div id="classify"></div>
+    <p id="clsScore" class="small" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- 5 ENGINEERING VIEW -->
+<section class="panel" id="s5" aria-label="Engineering view">
+  <h2>5. The engineer's view</h2>
+  <p>Nitinol is impressive, but it is not a "drop-in" replacement for steel. Tap to switch between strengths and limits.</p>
+  <div class="tabs">
+    <button class="tab active" data-pc="pro">✅ Strengths</button>
+    <button class="tab" data-pc="con">⚠ Limits to watch</button>
+  </div>
+  <div class="card pro" id="pc-pro">
+    <ul class="tick">
+      <li>Recovers large strains (far beyond normal metals)</li>
+      <li>Produces force on heating (useful for actuators)</li>
+      <li>Transition temperature can be tuned in manufacturing</li>
+      <li>Works in the body when properly processed and surface treated</li>
+      <li>Lets one part replace several (springs, hinges, latches)</li>
+    </ul>
+  </div>
+  <div class="card con" id="pc-con" style="display:none">
+    <ul class="tick" style="--x:1">
+      <li>More expensive than common alloys</li>
+      <li>Harder to machine, weld and heat treat</li>
+      <li>Transition temperature is very sensitive to composition</li>
+      <li>Heating and cooling limit actuator speed</li>
+      <li>Fatigue life must be checked in cyclic designs</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Design checklist</h3>
+    <div class="acc" data-acc><button aria-expanded="false"><span class="ico">🌡</span>1. What temperature will it work at?<span class="chev">▼</span></button><div class="body">Compare the service temperature with the transition temperatures. Below them you get shape memory behaviour; above them you get superelasticity.</div></div>
+    <div class="acc" data-acc><button aria-expanded="false"><span class="ico">🔁</span>2. How many cycles?<span class="chev">▼</span></button><div class="body">Repeated loading causes fatigue. Keep strains moderate for long-life parts.</div></div>
+    <div class="acc" data-acc><button aria-expanded="false"><span class="ico">💰</span>3. Is the benefit worth the cost?<span class="chev">▼</span></button><div class="body">Use Nitinol where its special behaviour removes parts or enables a function nothing else can.</div></div>
+  </div>
+</section>
+
+<!-- 6 QUIZ -->
+<section class="panel" id="s6" aria-label="Quiz">
+  <h2>6. Check your understanding</h2>
+  <div id="quizBox" class="card"></div>
+</section>
+
+<!-- 7 SUMMARY -->
+<section class="panel" id="s7" aria-label="Summary">
+  <h2>7. Summary</h2>
+  <div class="card" id="resultCard"></div>
+  <div class="card">
+    <h3>Key takeaways</h3>
+    <ul class="tick">
+      <li>Nitinol ≈ 50% Ni + 50% Ti.</li>
+      <li>Cold = <b>martensite</b> (soft, easy to deform). Hot = <b>austenite</b> (rigid, remembered shape).</li>
+      <li><b>Shape memory</b> is triggered by heat; <b>superelasticity</b> by removing load.</li>
+      <li>The change is a shift of atomic arrangement, not bond breaking.</li>
+      <li>Great for stents, braces, actuators and frames, but costly and harder to process.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Think further (homework idea)</h3>
+    <p style="margin:0">Choose one product you use daily. Could Nitinol make it better? Which property would you use, and what would be the cost trade-off?</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <button class="btn secondary" id="prev">◀ Back</button>
+  <span class="mid" id="midLabel"></span>
+  <button class="btn" id="next">Next ▶</button>
+</footer>
+
+<script src="scorm.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
